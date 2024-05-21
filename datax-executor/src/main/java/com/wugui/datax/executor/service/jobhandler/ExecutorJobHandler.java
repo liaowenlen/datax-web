@@ -63,7 +63,7 @@ public class ExecutorJobHandler extends IJobHandler {
 
         try {
             String[] cmdarrayFinal = buildDataXExecutorCmd(trigger, tmpFilePath,dataXPyPath);
-            final Process process = Runtime.getRuntime().exec(cmdarrayFinal);
+            final Process process = Runtime.getRuntime().exec(StringUtils.join(cmdarrayFinal, " "));
             String prcsId = ProcessUtil.getProcessId(process);
             JobLogger.log("------------------DataX process id: " + prcsId);
             jobTmpFiles.put(prcsId, tmpFilePath);
